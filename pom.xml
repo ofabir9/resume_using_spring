@@ -54,6 +54,11 @@
 		<version>1.18.20</version>
 		<scope>provided</scope>
 	</dependency>
+	<dependency>
+	    <groupId>org.hibernate.validator</groupId>
+	    <artifactId>hibernate-validator</artifactId>
+	    <version>6.1.0.Final</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>resume_with_spring_mvc</finalName>

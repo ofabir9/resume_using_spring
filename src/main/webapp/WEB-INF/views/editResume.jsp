@@ -63,8 +63,8 @@
 					  <form:label path="linkedin" for="linkedin" style="display:block;">Linkedin:</form:label>
 					  <form:input path="linkedin" type="text" class="pl-1" id="linkedin" name="linkedin" required="required"/>
 					  
-					  <form:label path="gmail" for="gmail" style="display:block;">Email:</form:label>
-					  <form:input path="gmail" type="text" class="pl-1" id="gmail" name="gmail" required="required"/>
+					  <form:label path="email" for="email" style="display:block;">Email:</form:label>
+					  <form:input path="email" type="text" class="pl-1" id="email" name="email" required="required"/>
 					  
 					  <form:label path="address" for="address" style="display:block;">Home Address:</form:label>
 					  <form:input path="address" type="text" class="pl-1" id="address" name="address" required="required"/>

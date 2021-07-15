@@ -2,17 +2,44 @@ package com.abir.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.URL;
+
 public class EmployeeDTO{
 	
 	private int id;
 	
+	@NotEmpty(message = "First Name cannot be Empty")
+	@Size(min=2,max=30,message = "First name must be between 2 to 30 characters")
 	private String firstName;
+	
+	@NotEmpty(message = "Last Name cannot be Empty")
+	@Size(min=2,max=30,message = "Last name must be between 2 to 30 characters")
 	private String lastName;
 	
+	@NotNull(message = "Mobile number cannot be null")
+	@NotEmpty(message = "Mobile number cannot be Empty")
+	@Pattern(regexp="(^$|[0-9]{8,13})",message="Provice valid mobile number")
 	private String mobile;
+	
+	@NotNull(message = "Github link cannot be null")
+	@URL(message = "Enter valid url")
 	private String github;
+	
+	@NotNull(message = "Linkdin link cannot be null")
+	@URL(message = "Enter valid url")
 	private String linkedin;
-	private String gmail;
+	
+	@Email(message = "Provice valid email address")
+	private String email;
+	
+	@NotEmpty(message = "Address cannot be Empty")
+	@Size(min=2,max=60,message = "Address must be between 2 to 60 characters")
 	private String address;
 	
 	List<String> educationCourses ;
@@ -153,11 +180,11 @@ public class EmployeeDTO{
 	public void setLinkedin(String linkedin) {
 		this.linkedin = linkedin;
 	}
-	public String getGmail() {
-		return gmail;
+	public String getEmail() {
+		return email;
 	}
-	public void setGmail(String gmail) {
-		this.gmail = gmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getAddress() {
 		return address;

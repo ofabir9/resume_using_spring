@@ -1,5 +1,7 @@
 package com.abir.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,8 +62,12 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/add")
-	public String addEmployee(@ModelAttribute("employeeDTO") EmployeeDTO employeeDTO,BindingResult result, Model model)
+	public String addEmployee(@Valid @ModelAttribute("employeeDTO") EmployeeDTO employeeDTO,BindingResult result, Model model)
 	{
+		if(result.hasErrors()) {
+			
+			return "error";
+		}
 		employeeService.insertEmployee(employeeService.employeeDTOToEmployee(employeeDTO));
 		return "redirect:/employees";
 	}
@@ -82,7 +88,12 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/edit/save")
-	public String saveEditEmployee(@ModelAttribute("employeeDTO") EmployeeDTO employeeDTO, @RequestParam("oldEmployeeId") int oldEmployeeId,Model model) {
+	public String saveEditEmployee(@Valid @ModelAttribute("employeeDTO") EmployeeDTO employeeDTO, @RequestParam("oldEmployeeId") int oldEmployeeId,BindingResult result,Model model) {
+			
+		if(result.hasErrors()) {
+			
+			return "error";
+		}
 		
 		System.out.println("DBG"+ employeeDTO.getFirstName());
 		Employee oldEmployee = employeeService.getEmployeeById(oldEmployeeId);

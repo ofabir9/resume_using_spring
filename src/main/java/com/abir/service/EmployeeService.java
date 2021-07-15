@@ -73,7 +73,7 @@ public class EmployeeService {
 			        employee.setMobile(employeeDTO.getMobile());
 			        employee.setGithub(employeeDTO.getGithub());
 			        employee.setLinkedin(employeeDTO.getLinkedin());
-			        employee.setGmail(employeeDTO.getGmail());
+			        employee.setEmail(employeeDTO.getEmail());
 			        employee.setAddress(employeeDTO.getAddress());
 			        
    
@@ -153,7 +153,7 @@ public class EmployeeService {
         employeeDTO.setMobile(employee.getMobile());
         employeeDTO.setGithub(employee.getGithub());
         employeeDTO.setLinkedin(employee.getLinkedin());
-        employeeDTO.setGmail(employee.getGmail());
+        employeeDTO.setEmail(employee.getEmail());
         employeeDTO.setAddress(employee.getAddress());
         
         

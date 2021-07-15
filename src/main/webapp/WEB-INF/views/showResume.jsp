@@ -56,7 +56,7 @@
             <span class="iconify" data-icon="akar-icons:linkedin-fill" data-inline="false"></span> <a href="https://www.linkedin.com/in/ofabir9/" target="_blank"><%=employee.getLinkedin() %></a>
           </div>
           <div class="text-1xl font-semibold text-center md:text-right flex flex-row justify-center md:justify-end text-gray-800">
-            <span class="iconify" data-icon="clarity:email-line" data-inline="false"></span><a href="mailto:omarfaruqueabir@gmail.com" ><%=employee.getGmail() %></a>
+            <span class="iconify" data-icon="clarity:email-line" data-inline="false"></span><a href="mailto:omarfaruqueabir@gmail.com" ><%=employee.getEmail() %></a>
           </div>
           <div class="location text-1xl font-semibold text-center md:text-right flex flex-row justify-center md:justify-end text-gray-800">
             <span class="iconify" data-icon="fluent:location-16-filled" data-inline="false"></span><%=employee.getAddress() %>
