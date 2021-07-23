@@ -48,10 +48,6 @@ public class EmployeeService {
 		this.employeeDao.insertEmployee(employee);
 	}
 	
-	public int getAvailableId()
-	{
-		return this.employeeDao.getAvailableId();
-	}
 	public void deleteEmployee(Employee employee)
 	{
 		employeeDao.deleteEmployee(employee);
@@ -67,7 +63,7 @@ public class EmployeeService {
 					
 			        Employee employee = new Employee();
 			        
-			        employee.setId(this.getAvailableId());
+			        //employee.setId(this.getAvailableId());
 			        employee.setFirstName(employeeDTO.getFirstName());
 			        employee.setLastName(employeeDTO.getLastName());
 			        employee.setMobile(employeeDTO.getMobile());

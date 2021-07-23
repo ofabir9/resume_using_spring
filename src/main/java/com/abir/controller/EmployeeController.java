@@ -75,6 +75,7 @@ public class EmployeeController {
 	@PostMapping("/edit")
 	public String showEditEmployeeForm(@RequestParam("id") int id,Model model)
 	{
+		System.out.println("Edit form");
 		if(employeeService.getEmployeeById(id)!=null)
 		{
 			model.addAttribute("employeeDTO",employeeService.employeeToEmployeeDTO( employeeService.getEmployeeById(id)));
@@ -94,12 +95,12 @@ public class EmployeeController {
 			
 			return "error";
 		}
-		
-		System.out.println("DBG"+ employeeDTO.getFirstName());
+
 		Employee oldEmployee = employeeService.getEmployeeById(oldEmployeeId);
 		Employee newEmployee = employeeService.employeeDTOToEmployee(employeeDTO);
-		System.out.println(newEmployee.getFirstName());
+		
 		employeeService.updateEmployee(oldEmployee, newEmployee);
+		
 		return "redirect:/employees";
 	}
 	@PostMapping("/delete")

@@ -2,18 +2,29 @@ package com.abir.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.URL;
 
 
-
+@Entity
 public class Employee {
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@NotEmpty(message = "First Name cannot be Empty")
@@ -43,9 +54,17 @@ public class Employee {
 	@Size(min=2,max=60,message = "Address must be between 2 to 60 characters")
 	private String address;
 	
+	@OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Education> educations;
+	@OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Skill> skills;
+	@OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Project> projects;
+	@OneToMany(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Achievement> achievements;
 	
 	public Employee() {
