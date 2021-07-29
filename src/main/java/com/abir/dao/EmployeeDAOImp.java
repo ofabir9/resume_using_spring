@@ -99,9 +99,10 @@ public class EmployeeDAOImp implements IEmployeeDAO{
 	@Transactional
 	public void updateEmployee(Employee oldEmployee, Employee newEmployee) {
 		newEmployee.setId(oldEmployee.getId());
-		deleteEmployee(oldEmployee);
-		insertEmployee(newEmployee);
-		
+//		deleteEmployee(oldEmployee);
+//		insertEmployee(newEmployee);
+		Session session = sessionFactory.getCurrentSession();
+		session.update(newEmployee);
 	}
 	
 
